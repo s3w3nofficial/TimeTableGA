@@ -24,15 +24,13 @@ class Population():
 
         #calculate maxFit and worstFit from population
         maxFit = 0
-        worstFit = 0
+        worstFit = None
 
         for i in range(self.populationSize):
             tmp = self.population[i].caclFitness()
             self.average += tmp
-            if tmp > maxFit:
-                maxFit = tmp
-            if worstFit == None or tmp < worstFit:
-                worstFit = tmp
+            if tmp > maxFit:  maxFit = tmp
+            if worstFit == None or tmp < worstFit: worstFit = tmp
 
         #calculate overall best
         if maxFit > self.best: self.best = maxFit
