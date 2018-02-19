@@ -20,9 +20,9 @@ teachers.append(Teacher('T3', ['M','V','D','C','F','Z']))
 teachers.append(Teacher('T4', ['M','V','A','D','C','F','Z']))
 
 mutationRate = 0.01
-populationSize = 2
+populationSize = 200
 
-generations = 1
+generations = 100
 
 def main():
     
