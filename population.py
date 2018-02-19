@@ -11,7 +11,7 @@ class Population():
         self.matingpool = []
 
         self.best = 0
-        self.worst = 0
+        self.worst = None
         self.average = 0
         self.populationSize = populationSize
 
@@ -27,7 +27,7 @@ class Population():
 
         #calculate maxFit and worstFit from population
         maxFit = 0
-        worstFit = 0
+        worstFit = 1
 
         for i in range(self.populationSize):
             tmp = self.population[i].caclFitness()
@@ -40,7 +40,7 @@ class Population():
         #calculate overall best
         if maxFit > self.best: self.best = maxFit
         #calculate overall worst
-        if worstFit < self.worst: self.worst = worstFit
+        if self.worst == None or worstFit < self.worst: self.worst = worstFit
 
         for i in range(self.populationSize):
             n = int(self.population[i].caclFitness()*100)
