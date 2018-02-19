@@ -14,7 +14,7 @@ subjects = [
 ]
 
 teachers = []
-teachers.append(Teacher('T1', ['M','V','A','D','C','F','Z']))
+teachers.append(Teacher('T1', ['M','V','D','C','F','Z']))
 teachers.append(Teacher('T2', ['M','V','A','D','C','F','Z']))
 teachers.append(Teacher('T3', ['M','V','A','D','C','F','Z']))
 teachers.append(Teacher('T4', ['M','V','A','D','C','F','Z']))

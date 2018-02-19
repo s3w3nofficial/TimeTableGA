@@ -23,21 +23,23 @@ class DNA():
                 self.subjects[i].remove(tmp[0])
             self.genes.append(classGenes)
 
-
     def newGen(self, subjectsDay, teachers):
         
         subject = random.choice(subjectsDay)
+        
         teacher = self.selectTeacher(subject, teachers)
+        while teacher == None:
+            teacher = self.selectTeacher(subject, teachers)
+
         return [subject, teacher]
 
-    # this function is rekurziv :D
+    # this function is rekursiv :D
     def selectTeacher(self, subject, teachers):
-        
         tmp = random.choice(teachers)
-        if subject in tmp.subjects:
+        if subject in tmp.subjects:            
             return tmp
         else:
-            self.selectTeacher(subject, teachers)
+            return None
 
     def caclFitness(self):
         
