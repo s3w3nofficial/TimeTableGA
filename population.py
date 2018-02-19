@@ -28,6 +28,7 @@ class Population():
 
         for i in range(self.populationSize):
             tmp = self.population[i].caclFitness()
+            print tmp
             self.average += tmp
             if tmp > maxFit:
                 maxFit = tmp

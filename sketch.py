@@ -16,13 +16,13 @@ subjects = [
 teachers = []
 teachers.append(Teacher('T1', ['M','V','D','C','F','Z']))
 teachers.append(Teacher('T2', ['M','V','A','D','C','F','Z']))
-teachers.append(Teacher('T3', ['M','V','A','D','C','F','Z']))
+teachers.append(Teacher('T3', ['M','V','D','C','F','Z']))
 teachers.append(Teacher('T4', ['M','V','A','D','C','F','Z']))
 
 mutationRate = 0.01
-populationSize = 100
+populationSize = 2
 
-generations = 100
+generations = 1
 
 def main():
     

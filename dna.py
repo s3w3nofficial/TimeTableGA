@@ -9,19 +9,21 @@ class DNA():
         self.dnaId = dnaId
 
         self.subjects = subjects
-        self.subjectsCopy = copy.deepcopy(subjects)
         self.teachers = teachers
         self.mutationRate = mutationRate
         self.genes = []
         self.fitness = 0
 
+        tmpSubjects = copy.deepcopy(self.subjects)
         for i in range(len(self.subjects)):
             classGenes = []
             for j in range(len(self.subjects[i])):
-                tmp = self.newGen(self.subjects[i], self.teachers)
+                tmp = self.newGen(tmpSubjects[i], self.teachers)
                 classGenes.append(tmp)
-                self.subjects[i].remove(tmp[0])
+                tmpSubjects[i].remove(tmp[0])
             self.genes.append(classGenes)
+        
+        #print self.genes
 
     def newGen(self, subjectsDay, teachers):
         
@@ -76,4 +78,4 @@ class DNA():
         for i in range(len(self.genes)):
             for j in range(len(self.genes[i])):
                 if(random.uniform(0, 1) < self.mutationRate):
-                    self.genes[i][j] = self.newGen(self.subjectsCopy[i], self.teachers)
+                    self.genes[i][j] = self.newGen(self.subjects[i], self.teachers)
