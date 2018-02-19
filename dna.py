@@ -1,4 +1,5 @@
 import random
+import copy
 
 class DNA():
 
@@ -8,6 +9,7 @@ class DNA():
         self.dnaId = dnaId
 
         self.subjects = subjects
+        self.subjectsCopy = copy.deepcopy(subjects)
         self.teachers = teachers
         self.mutationRate = mutationRate
         self.genes = []
@@ -68,14 +70,8 @@ class DNA():
         return self
 
     def mutate(self):
-        
+
         for i in range(len(self.genes)):
             for j in range(len(self.genes[i])):
                 if(random.uniform(0, 1) < self.mutationRate):
-                    subs = [
-                            ['M','V','A','C','C','V','Z','Z','C'],
-                            ['D','M','M','C','C','A'],
-                            ['Z','F','F','C','A','C'],
-                            ['M','V','A','F','F','A','D']
-                    ]
-                    self.genes[i][j] = self.newGen(subs[i], self.teachers)
+                    self.genes[i][j] = self.newGen(self.subjectsCopy[i], self.teachers)

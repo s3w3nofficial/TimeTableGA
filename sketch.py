@@ -11,7 +11,7 @@ subjects = [
     ['D','M','M','C','C','A'],
     ['Z','F','F','C','A','C'],
     ['M','V','A','F','F','A','D']
-];
+]
 
 teachers = []
 teachers.append(Teacher('T1', ['M','V','A','D','C','F','Z']))
@@ -20,7 +20,7 @@ teachers.append(Teacher('T3', ['M','V','A','D','C','F','Z']))
 teachers.append(Teacher('T4', ['M','V','A','D','C','F','Z']))
 
 mutationRate = 0.01
-populationSize = 2
+populationSize = 100
 
 generations = 100
 

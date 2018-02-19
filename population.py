@@ -10,18 +10,15 @@ class Population():
         self.population = []
         self.matingpool = []
 
+        self.subjects = subjects
+
         self.best = 0
         self.worst = None
         self.average = 0
         self.populationSize = populationSize
 
         for i in range(self.populationSize):
-            self.population.append(DNA(i, [
-                        ['M','V','A','C','C','V','Z','Z','C'],
-                        ['D','M','M','C','C','A'],
-                        ['Z','F','F','C','A','C'],
-                        ['M','V','A','F','F','A','D']                
-                                            ], teachers, mutationRate))
+            self.population.append(DNA(i, self.subjects, teachers, mutationRate))
 
     def evaluate(self):
 
