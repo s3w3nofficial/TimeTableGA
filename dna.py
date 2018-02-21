@@ -43,18 +43,22 @@ class DNA():
         else:
             return None
 
-    def caclFitness(self):
+    def caclFitness(self, calcPerfect=False):
         
         self.fitness = 0
         score = 0
-        
+        perfectFit = 0
+
         for i in range(len(self.genes)):
             for j in range(len(self.genes[i])):
 
                 for k in range(len(self.genes)):
+                    if calcPerfect == True and j < len(self.genes[k]):
+                        perfectFit += 1
                     if j < len(self.genes[k]) and self.genes[i][j][1].name != self.genes[k][j][1].name:
                         score += 1
-
+                        
+        if calcPerfect == True: self.perfectFit = float(perfectFit) / 100
         self.fitness = float(score) / 100
         return self.fitness
 

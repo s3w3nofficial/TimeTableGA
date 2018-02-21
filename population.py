@@ -13,27 +13,39 @@ class Population():
         self.subjects = subjects
 
         self.best = 0
+        self.bestData = []
         self.worst = None
         self.average = 0
         self.populationSize = populationSize
+        self.perfectFit = 0
 
         for i in range(self.populationSize):
             self.population.append(DNA(i, self.subjects, teachers, mutationRate))
 
-    def evaluate(self):
+    def evaluate(self, calcPerfect=False):
 
         #calculate maxFit and worstFit from population
         maxFit = 0
+        maxFitData = []
         worstFit = None
+
+        if calcPerfect == True:
+            self.population[0].caclFitness(calcPerfect)
+            self.perfectFit = self.population[0].perfectFit
 
         for i in range(self.populationSize):
             tmp = self.population[i].caclFitness()
             self.average += tmp
-            if tmp > maxFit:  maxFit = tmp
+            if tmp > maxFit: 
+                maxFit = tmp
+                maxFitData = self.population[i].genes
+
             if worstFit == None or tmp < worstFit: worstFit = tmp
 
         #calculate overall best
-        if maxFit > self.best: self.best = maxFit
+        if maxFit > self.best: 
+            self.best = maxFit
+            self.bestData = maxFitData
         #calculate overall worst
         if self.worst == None or worstFit < self.worst: self.worst = worstFit
 
