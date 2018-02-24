@@ -2,5 +2,6 @@
 data/*.json
 build/
 TimeTablePython/*.so
-TimeTablePython*.c
+TimeTablePython/*.c
 *.so
+*.html

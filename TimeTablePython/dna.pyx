@@ -82,5 +82,5 @@ class DNA():
         for i in range(len(self.genes[1])):
             for j in range(len(self.genes[1][i])):
                 if(random.uniform(0, 1) < self.mutationRate):
-                    self.genes[i][1][j] = self.newGen(self.realdata[i][1], self.realdata[i][2])
+                    self.genes[i][1][j] = self.newGen(self.realdata[i][1], self.genes[i][1][j][0])
 

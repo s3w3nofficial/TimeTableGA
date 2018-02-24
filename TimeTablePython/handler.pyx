@@ -38,7 +38,7 @@ class Handler():
         for i in range(self.generations):
             self.population.evaluate()
             average = self.population.calcAverage(self.populationSize, i+1)
-            #self.population.generate()
+            self.population.generate()
             print "best is: "  + colored(str(self.population.best), 'green') + " and worst is: " + colored(str(self.population.worst), 'red') + " average is: " + colored(str(average), 'yellow')
         self.population.evaluate()
 
@@ -53,4 +53,6 @@ class Handler():
                 position[str(j)] = [self.population.bestData[i][1][j][0], self.population.bestData[i][1][j][1].name] 
             classes[self.population.bestData[i][0]] = position
 
-        print json.dumps(classes, sort_keys=True, indent=4, separators=(',', ': '))
+        data = json.dumps(classes, sort_keys=True, indent=4, separators=(',', ': '))
+        with open('data/best.json', 'w') as f:
+            f.writelines(data)
