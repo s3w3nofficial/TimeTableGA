@@ -3,5 +3,6 @@ data/*.json
 build/
 TimeTablePython/*.so
 TimeTablePython/*.c
+TimeTablePython/*.swp
 *.so
 *.html
