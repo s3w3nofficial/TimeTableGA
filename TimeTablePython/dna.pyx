@@ -4,7 +4,7 @@ import random
 class DNA():
 
 
-    def __init__(self, data, mutationRate):
+    def __init__(self, data, int mutationRate):
 
         self.realdata = data
         self.data = deepcopy(data)

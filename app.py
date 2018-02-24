@@ -14,7 +14,7 @@ def main():
     handler = Handler(data, mutationRate, populationSize, generations)
     handler.createPopulation()
     handler.run()
-    handler.writeRes()
+    handler.generateRes()
 
 if __name__ == "__main__":
     main()

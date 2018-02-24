@@ -15,14 +15,15 @@ class Handler():
                 
         teacher = {}
         teacher['T1'] = Teacher('T1', ['M','CJ','D'])
-        teacher['T2'] = Teacher('T2', ['M','CJ','D'])
+        teacher['T2'] = Teacher('T2', ['M','CJ','D', 'Z'])
         teacher['T3'] = Teacher('T3', ['M','CJ','D'])
+        teacher['T4'] = Teacher('T4', ['F'])
 
         self.data = [
-                        ['C1', [teacher['T1'], teacher['T2']], ['M', 'CJ', 'D']],
-                        ['C2', [teacher['T1'], teacher['T2']], ['M', 'CJ']],
-                        ['c3', [teacher['T3']], ['M', 'CJ',  'D']]        
-                    ]        
+                        ['C1', [teacher['T1'], teacher['T2'], teacher['T4']], ['M', 'CJ', 'D', 'F']],
+                        ['C2', [teacher['T1'], teacher['T2'], teacher['T4']], ['M', 'CJ', 'F']],
+                        ['c3', [teacher['T3'], teacher['T2'], teacher['T4']], ['M', 'CJ',  'D', 'Z', 'F']] 
+                    ]
 
         self.mutationRate = mutationRate
         self.populationSize = populationSize
@@ -42,7 +43,7 @@ class Handler():
             print "best is: "  + colored(str(self.population.best), 'green') + " and worst is: " + colored(str(self.population.worst), 'red') + " average is: " + colored(str(average), 'yellow')
         self.population.evaluate()
 
-    def writeRes(self):
+    def generateRes(self):
         cdef int i
         cdef int j
       
