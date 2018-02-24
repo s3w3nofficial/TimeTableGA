@@ -1,2 +1,6 @@
 *.pyc
 data/*.json
+build/
+TimeTablePython/*.so
+TimeTablePython*.c
+*.so
